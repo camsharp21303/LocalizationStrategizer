@@ -28,9 +28,14 @@ namespace LocalizationStrategizer
             g = panel1.CreateGraphics();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void resetDrawables_Click(object sender, EventArgs e)
         {
             this.panel1.Invalidate();
+        }
+
+        private void DownArms_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Panel1_MouseClick(object sender, MouseEventArgs e)
@@ -64,7 +69,6 @@ namespace LocalizationStrategizer
             }
             Console.WriteLine("X: " + X);
             Console.WriteLine("Y: " + Y);
-
            
             Pen p = new Pen(Color.Yellow);
             Point point = new Point(e.X, e.Y);
@@ -77,6 +81,8 @@ namespace LocalizationStrategizer
                 g.DrawLine(p, lastPoint, turnPoint);
                 g.DrawLine(p, turnPoint, point);
             }
+            codeOutput.AppendText("updatePosition()\n");
+            codeOutput.AppendText("moveWithEncoder(" + point.X + ", " + point.Y + ")\n");
             lastPoint = point;
         }
     }
